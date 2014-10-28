@@ -17,3 +17,4 @@ Currently Witty merely works as a master app: he grasps your intent and forwards
 - Place discovery (anywhere, default to your location)
 - Website/app hotlink
 - Camera
+- Video query

@@ -37,7 +37,7 @@ public class MainActivity extends ActionBarActivity implements IWitListener {
 
     Wit _wit;
 
-    private final String ACCESS_TOKEN = "YOUR_TOKEN";
+    private final String ACCESS_TOKEN = "YOUR_WIT_TOKEN";
     private final String HOME = "Your home address";
 
     @Override
@@ -158,6 +158,13 @@ public class MainActivity extends ActionBarActivity implements IWitListener {
             } else if (intent.equals("take_picture")) {
                 Intent camera = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
                 startActivity(camera);
+            } else if (intent.equals("video_search")) {
+                String query = "";
+                if (entities.containsKey("search_query")) {
+                    query = entities.get("search_query").getAsJsonObject().get("value").getAsString();
+                }
+                Intent youtube = new Intent(Intent.ACTION_VIEW, Uri.parse("http://www.youtube.com/results?search_query=" + query));
+                startActivity(youtube);
             }
         }
     }
